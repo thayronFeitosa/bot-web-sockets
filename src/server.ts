@@ -1,12 +1,4 @@
-import express, { Request, Response } from 'express';
+import { server } from "./http";
+import './websocket/ChatService'
 
-const app = express();
-
-
-app.get('/', (request: Request, response: Response) => {
-    return response.json({
-        message: 'Welcome'
-    });
-});
-
-app.listen(3000, () => console.log('Serviador rodando na porta 3333'));
+server.listen(3000, () => console.log('Serviador rodando na porta 3333'));
