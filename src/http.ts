@@ -21,9 +21,11 @@ mongoose.connect(`mongodb://${process.env.DOCKER_DB_SERVER_IPV4}:27017/teste`, {
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 const io = new Server(server);
+
 io.on("connection", (socket) => {
     console.log('socket', socket.id);
 });
+
 app.get('/', (request: Request, response: Response) => {
     return response.json({
         message: 'Welcome'
